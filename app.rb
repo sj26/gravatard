@@ -5,7 +5,7 @@ require 'digest/md5'
 require 'sinatra/base'
 require 'rmagick'
 
-module Gravitard
+module Gravatard
   class Application < Sinatra::Base
     AVATAR_PATH = File.expand_path(File.join(File.dirname(__FILE__), 'avatars'))
     AVATAR_ORIGINAL_PATH = File.join(AVATAR_PATH, 'original')

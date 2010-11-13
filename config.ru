@@ -1,3 +1,3 @@
 require 'app'
 
-run Gravitard::Application
+run Gravatard::Application
