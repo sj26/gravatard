@@ -12,6 +12,21 @@ module Gravatard
     AVATAR_DEFAULT = File.join(AVATAR_PATH, 'default.png')
     AVATAR_ORIGINAL_PATH = File.join(AVATAR_PATH, 'original')
     
+    helpers do
+      def recent limit=10
+        seen = []
+        File.new(File.join(AVATAR_PATH, 'recent.log'), 'r').each do |email_md5|
+          email_md5.strip!
+          unless seen.include? email_md5
+            yield email_md5 
+            seen << email_md5
+            limit -= 1
+            break if limit < 1
+          end
+        end
+      end
+    end
+    
     get '/' do
       haml :home
     end
@@ -37,6 +52,11 @@ module Gravatard
       Dir.mkdir(File.join(AVATAR_PATH, size.to_s)) unless File.exists? File.join(AVATAR_PATH, size.to_s)
       avatar_thumbnail_filename = File.join(AVATAR_PATH, size.to_s, "#{email_md5}.#{avatar.format.downcase}")
       avatar.write avatar_thumbnail_filename
+      
+      # Keep track of recent avatars
+      recent = File.new(File.join(AVATAR_PATH, 'recent.log'), 'a')
+      recent.sync = true
+      recent << "#{email_md5}\n"
       
       redirect '/'
     end

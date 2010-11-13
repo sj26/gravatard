@@ -1,5 +1,7 @@
 %article
   %p Retarded Gravatar&mdash;it doesn't know much.
+  %p Would someone please make this look purty? It's on my <a href="http://Julie.local:9331/">bananajour</a> as Gravatard.
+  %h2 Upload Avatar
   %p Please, be nice.
   %form{:id => "upload", :action => "/upload", :method => "POST", :enctype => "multipart/form-data"}
     %fieldset
@@ -18,3 +20,8 @@
         %dd
           Images larger than 512x512px will be resized.
     %input{:type => :submit}
+  %h2 Recent Avatars
+  %ul{:style => "margin: 0; padding: 0; list-style: none; display: inline"}
+    - recent 8 do |email_md5|
+      %li{:style => "margin: 0; padding: 0; list-style: none; display: inline"}
+        %img{:src => "/avatar/#{email_md5}?s=64", :class => "gravatar"}
