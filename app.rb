@@ -9,6 +9,7 @@ require 'rmagick'
 module Gravatard
   class Application < Sinatra::Base
     AVATAR_PATH = File.expand_path(File.join(File.dirname(__FILE__), 'avatars'))
+    AVATAR_DEFAULT = File.join(AVATAR_PATH, 'default.png')
     AVATAR_ORIGINAL_PATH = File.join(AVATAR_PATH, 'original')
     
     get '/' do
@@ -48,7 +49,10 @@ module Gravatard
       halt 401, {}, ["Size invalid"] unless 1 <= size && size <= 512
       
       avatar_filename = File.join(AVATAR_ORIGINAL_PATH, email_md5)
-      halt 404, {}, ["Gravatar not found"] unless File.exists? avatar_filename
+      unless File.exists? avatar_filename
+        email_md5 = 'default'
+        avatar_filename = AVATAR_DEFAULT
+      end
       
       avatar_thumbnail_filename = File.join(AVATAR_PATH, size.to_s, "#{email_md5}.#{format}")
       if !File.exists?(avatar_thumbnail_filename) || File.stat(avatar_thumbnail_filename).mtime <= File.stat(avatar_filename).mtime
