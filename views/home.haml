@@ -1,19 +1,20 @@
-%p Retarded Gravatar&mdash;it doesn't know much.
-%p Please, be nice.
-%form{:id => "upload", :action => "/upload", :method => "POST", :enctype => "multipart/form-data"}
-  %fieldset
-    %legend Upload Avatar
-    %dl
-      %dt
-        %label{:for => "upload_email"} Email Address
-      %dd
-        %input{:id => "upload_email", :type => "email", :name => "email"}        
-      %dt
-        %label{:for => "upload_avatar"} Avatar
-      %dd
-        %input{:id => "upload_avatar", :type => "file", :name => "avatar"}
-      %dd
-        Maximum filesize: 1mb
-      %dd
-        Images larger than 512x512px will be resized.
-  %input{:type => :submit}
+%article
+  %p Retarded Gravatar&mdash;it doesn't know much.
+  %p Please, be nice.
+  %form{:id => "upload", :action => "/upload", :method => "POST", :enctype => "multipart/form-data"}
+    %fieldset
+      %legend Upload Avatar
+      %dl
+        %dt
+          %label{:for => "upload_email"} Email Address
+        %dd
+          %input{:id => "upload_email", :type => "email", :name => "email"}        
+        %dt
+          %label{:for => "upload_avatar"} Avatar
+        %dd
+          %input{:id => "upload_avatar", :type => "file", :name => "avatar"}
+        %dd
+          Maximum filesize: 1mb
+        %dd
+          Images larger than 512x512px will be resized.
+    %input{:type => :submit}
