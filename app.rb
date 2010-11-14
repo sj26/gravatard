@@ -91,5 +91,13 @@ module Gravatard
       
       redirect "/avatar/#{email_md5}#{format_suffix}"
     end
+    
+    get '/gravatar.php' do
+      query = request.GET.dup
+      email_md5 = query.delete('gravatar_id').downcase
+      halt 400, {}, ['Invalid gravatar ID'] unless email_md5.present? && email_md5 =~ /\A[a-f0-9]{32}\Z/
+      
+      redirect "/avatar/#{email_md5}?#{Rack::Utils.build_query(query)}"
+    end
   end
 end
