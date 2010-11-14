@@ -1,8 +1,6 @@
 require 'bundler'
 Bundler.setup
 
-# dirt
-
 require 'active_support/all'
 require 'digest/md5'
 require 'sinatra/base'
