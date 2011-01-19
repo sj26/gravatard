@@ -64,6 +64,7 @@ module Gravatard
     get %r{\A/avatar/([a-zA-Z0-9\-_]{32})(?:.(png|jpg|jpeg|gif))?\Z} do |email_md5, format|
       email_md5.downcase!
       format = (format || "png").downcase.to_sym
+      format = :jpeg if format == :jpg
       size = (params[:s] || params[:size] || 80).to_i
       
       halt 401, {}, ["Size invalid"] unless 1 <= size && size <= 512
