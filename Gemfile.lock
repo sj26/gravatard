@@ -1,0 +1,22 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activesupport (3.0.1)
+    haml (3.0.23)
+    i18n (0.4.1)
+    rack (1.2.1)
+    rmagick (2.13.1)
+    sinatra (1.1.0)
+      rack (~> 1.1)
+      tilt (~> 1.1)
+    tilt (1.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activesupport
+  haml
+  i18n
+  rmagick
+  sinatra
