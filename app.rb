@@ -24,6 +24,7 @@ module Gravatard
             break if limit < 1
           end
         end
+      rescue Errno::ENOENT
       end
     end
     
