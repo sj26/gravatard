@@ -2,6 +2,6 @@ source 'https://rubygems.org'
 
 gem 'activesupport'
 gem 'i18n'
-gem 'rmagick'
+gem 'image_science'
 gem 'sinatra'
 gem 'haml'

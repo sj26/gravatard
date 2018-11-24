@@ -2,11 +2,7 @@
 
 Simple [Gravatar](http://gravatar.com) clone created for use at [Rails Camps](http://railscamps.com).
 
-## Requirements
-
-* [Bundler](http://gembundler.com)
-* [ImageMagick](http://www.imagemagick.org/script/install-source.php)
-  * Mac OS X users should use [homebrew's](https://github.com/mxcl/homebrew/wiki/installation) `brew install imagemagick` or the [magick-installer](https://github.com/maddox/magick-installer).
+## Usage
 
 Simply install the gem based dependencies using Bundler:
 

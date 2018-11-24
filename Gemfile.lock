@@ -1,15 +1,37 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (3.0.1)
-    haml (3.0.23)
-    i18n (0.4.1)
-    rack (1.2.1)
-    rmagick (2.13.1)
-    sinatra (1.1.0)
-      rack (~> 1.1)
-      tilt (~> 1.1)
-    tilt (1.1)
+    RubyInline (3.12.4)
+      ZenTest (~> 4.3)
+    ZenTest (4.11.1)
+    activesupport (5.2.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+    concurrent-ruby (1.1.3)
+    haml (5.0.4)
+      temple (>= 0.8.0)
+      tilt
+    i18n (1.1.1)
+      concurrent-ruby (~> 1.0)
+    image_science (1.3.0)
+      RubyInline (~> 3.9)
+    minitest (5.11.3)
+    mustermann (1.0.3)
+    rack (2.0.6)
+    rack-protection (2.0.4)
+      rack
+    sinatra (2.0.4)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.4)
+      tilt (~> 2.0)
+    temple (0.8.0)
+    thread_safe (0.3.6)
+    tilt (2.0.8)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
 
 PLATFORMS
   ruby
@@ -18,5 +40,8 @@ DEPENDENCIES
   activesupport
   haml
   i18n
-  rmagick
+  image_science
   sinatra
+
+BUNDLED WITH
+   1.16.1
